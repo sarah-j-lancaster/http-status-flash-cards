@@ -5,7 +5,7 @@ import styles from "./page.module.scss";
 import { RadioGroup } from "@/components/RadioGroup/RadioGroup";
 import { useState } from "react";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--inter-font" });
 
 const Home = () => {
   const [selectedStatusCodeIndex, setSelectedStatusCodeIndex] = useState<
@@ -13,7 +13,7 @@ const Home = () => {
   >(undefined);
 
   return (
-    <main className={styles.main}>
+    <main className={`${styles.main} ${inter.className}`}>
       <h1 className={inter.className}>
         Practice your recall of the HTTP status codes
       </h1>

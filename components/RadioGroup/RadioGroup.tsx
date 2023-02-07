@@ -1,6 +1,5 @@
 "use client";
 import styles from "./radio-group.module.scss";
-import { Inter } from "@next/font/google";
 
 export type RadioGroupProps = {
   radioGroupLabel: string;
@@ -9,8 +8,6 @@ export type RadioGroupProps = {
   onChange: (value: number) => void;
 };
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const RadioGroup = ({
   radios,
   radioGroupLabel,
@@ -18,7 +15,7 @@ export const RadioGroup = ({
   onChange,
 }: RadioGroupProps) => {
   const radioButtons = radios.map((radio, index) => (
-    <div className="radio">
+    <div className="radio" key={`radio-${radio}`}>
       <div className={styles["card"]}>
         <input
           className={styles["radio-input"]}
@@ -37,7 +34,7 @@ export const RadioGroup = ({
 
   return (
     <>
-      <fieldset className={inter["className"]}>
+      <fieldset>
         <legend id={"radio-group"} className={styles["radio-group-label"]}>
           <span>{radioGroupLabel}</span>
         </legend>
