@@ -5,7 +5,7 @@ import {
   level400Codes,
   level500Codes,
   StatusCode,
-} from "static/data";
+} from "@/public/data/data";
 import _ from "lodash";
 
 export type StatusCodeTestGroup = {
@@ -25,7 +25,7 @@ export const getStatusCodes = (): StatusCodeTestGroup => {
   ];
   const levelToTestIndex = _.random(0, 4);
   const levelToTest = levels[levelToTestIndex];
-  const levelToTestCopy = JSON.parse(JSON.stringify(levelToTest));
+  const levelToTestCopy = [...levelToTest];
 
   let maxLevelIndex = levelToTestCopy.length - 1;
   const testCodeIndex = _.random(0, maxLevelIndex);
@@ -40,7 +40,6 @@ export const getStatusCodes = (): StatusCodeTestGroup => {
   maxLevelIndex = levelToTestCopy.length - 1;
   const decoyCode2Index = _.random(0, maxLevelIndex);
   const decoyCode2 = levelToTestCopy[decoyCode2Index];
-  levelToTestCopy.splice(decoyCode1Index, 1);
 
   const shuffledCodes = _.shuffle([
     testCode.statusCode,
@@ -55,3 +54,11 @@ export const getStatusCodes = (): StatusCodeTestGroup => {
     shuffledCodes,
   };
 };
+
+export const getAllLevels = () => [
+  ...level100Codes,
+  ...level200Codes,
+  ...level300Codes,
+  ...level400Codes,
+  ...level500Codes,
+];

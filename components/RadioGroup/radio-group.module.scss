@@ -1,16 +1,15 @@
 .radio-group {
-  display: contents;
+  display: block;
+  @media only screen and (min-width: 750px) {
+    margin-bottom: 16px;
+  }
 }
 
 .radio-group-container {
   display: flex;
   align-items: center;
-  flex-direction: column;
   justify-content: space-around;
   gap: 20px;
-  @media only screen and (min-width: 750px) {
-    flex-direction: row;
-  }
 }
 
 .radio-group-label {
@@ -19,9 +18,13 @@
 }
 
 .card {
-  height: 120px;
-  width: 200px;
+  height: 60px;
+  width: 120px;
   position: relative;
+  @media only screen and (min-width: 750px) {
+    height: 120px;
+    width: 200px;
+  }
 }
 
 .radio-input {
@@ -45,8 +48,12 @@
   background-color: #f9fafd;
   border: 1px solid #e2e6f3;
   border-radius: 50%;
-  top: 50px;
-  right: 20px;
+  top: 17px;
+  right: 14px;
+  @media only screen and (min-width: 750px) {
+    top: 50px;
+    right: 20px;
+  }
 }
 
 .radio-input:after {
@@ -56,8 +63,12 @@
   width: 13px;
   background-color: transparent;
   border-radius: 50%;
-  top: 54.2px;
-  right: 25.5px;
+  top: 22.2px;
+  right: 19.5px;
+  @media only screen and (min-width: 750px) {
+    top: 54.2px;
+    right: 25.5px;
+  }
 }
 
 .label {
@@ -65,7 +76,10 @@
   left: 36%;
   top: 35%;
   cursor: pointer;
-  font-size: 30px;
+  font-size: 16px;
+  @media only screen and (min-width: 750px) {
+    font-size: 30px;
+  }
 }
 
 .radio-input:hover {

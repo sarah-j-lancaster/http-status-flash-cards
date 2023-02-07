@@ -10,6 +10,22 @@
 }
 
 .answers {
-  margin-top: 40px;
+  margin-top: 20px;
   text-align: center;
+  @media only screen and (min-width: 750px) {
+    margin-top: 40px;
+  }
+}
+
+.title {
+  text-align: center;
+  font-size: 1.5em;
+  @media only screen and (min-width: 750px) {
+    font-size: 2em;
+  }
+}
+
+.incorrect {
+  margin-top: 16px;
+  margin-bottom: 16px;
 }

@@ -28,7 +28,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ## Most important improvements remaining:
 
-- Unit test getStatusCodes function
+- Set up test pipeline - unit test getStatusCodes function
 - Set up css vars eg. breakpoints properly
-- Stop lazy loading the images/handle slow image load
 - Better user feedback after click (more clear UX)
+- Focus states bug

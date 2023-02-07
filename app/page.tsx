@@ -35,9 +35,31 @@ const Home = () => {
     setStatusCodeTestGroup(statusCodes);
   }, []);
 
+  const renderAnswerSection = (
+    selectedIndex: number,
+    group: StatusCodeTestGroup
+  ) => {
+    const isCorrect =
+      group.shuffledCodes[selectedIndex] === group.testCode.statusCode;
+
+    const correctElement = <p className={spaceMonoBold.className}>CORRECT!</p>;
+    const incorrectElement = (
+      <div className={styles.incorrect}>
+        <span className={spaceMonoBold.className}>INCORRECT</span>
+        <span>{` - The answer is ${group.testCode.statusCode}`}</span>
+      </div>
+    );
+    return (
+      <>
+        {isCorrect ? correctElement : incorrectElement}
+        <Button label="Next" onClick={resetSelection} />
+      </>
+    );
+  };
+
   return (
     <main className={`${styles.main} ${spaceMono.className}`}>
-      <h1 className={spaceMono.className}>
+      <h1 className={styles.title}>
         Practice your recall of the HTTP status codes
       </h1>
       {statusCodeTestGroup && (
@@ -54,19 +76,12 @@ const Home = () => {
             onChange={(selectedIndex: number) => handleSelection(selectedIndex)}
           />
           {selectedStatusCodeIndex !== undefined && (
-            <div className={styles.answers}>
-              {statusCodeTestGroup.shuffledCodes[selectedStatusCodeIndex] ===
-              statusCodeTestGroup.testCode.statusCode ? (
-                <p className={spaceMonoBold.className}>CORRECT!</p>
-              ) : (
-                <div>
-                  <span className={spaceMonoBold.className}>INCORRECT</span>
-                  <span>{`- The answer is ${statusCodeTestGroup.testCode.statusCode}`}</span>{" "}
-                </div>
+            <>
+              {renderAnswerSection(
+                selectedStatusCodeIndex,
+                statusCodeTestGroup
               )}
-
-              <Button label="Next" onClick={resetSelection} />
-            </div>
+            </>
           )}
         </>
       )}

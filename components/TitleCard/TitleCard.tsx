@@ -12,7 +12,7 @@ export type TitleCardProps = {
 export const TitleCard = ({ img, title }: TitleCardProps) => {
   return (
     <div className={styles.container}>
-      <Image src={img} alt={""} height={200} width={300} priority />
+      <img src={img} alt={""} className={styles.image} />
       <p className={`${spaceMono.className} ${styles.title}`}>{title}</p>
     </div>
   );

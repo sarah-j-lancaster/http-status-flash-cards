@@ -1,9 +1,15 @@
 .button {
   border-radius: 10px;
   border: 3px solid #000000;
-  padding: 20px 16px;
-  width: 150px;
-  font-size: 20px;
+  padding: 16px 8px;
+  width: 120px;
+  font-size: 16px;
   cursor: pointer;
-  margin: 30px;
+  margin: 16px;
+  font-family: inherit;
+  @media only screen and (min-width: 750px) {
+    width: 150px;
+    font-size: 20px;
+    padding: 20px 16px;
+  }
 }
