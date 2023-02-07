@@ -1,11 +1,19 @@
 "use client";
-import Image from "next/image";
-import { Inter } from "@next/font/google";
+import { Space_Mono } from "@next/font/google";
 import styles from "./page.module.scss";
 import { RadioGroup } from "@/components/RadioGroup/RadioGroup";
 import { useState } from "react";
+import {
+  level100Codes,
+  level200Codes,
+  level300Codes,
+  level400Codes,
+  level500Codes,
+  codeLevelList,
+} from "static/data";
+import { TitleCard } from "@/components/TitleCard/TitleCard";
 
-const inter = Inter({ subsets: ["latin"], variable: "--inter-font" });
+const spaceMono = Space_Mono({ weight: "400", preload: false });
 
 const Home = () => {
   const [selectedStatusCodeIndex, setSelectedStatusCodeIndex] = useState<
@@ -13,14 +21,13 @@ const Home = () => {
   >(undefined);
 
   return (
-    <main className={`${styles.main} ${inter.className}`}>
-      <h1 className={inter.className}>
+    <main className={`${styles.main} ${spaceMono.className}`}>
+      <h1 className={spaceMono.className}>
         Practice your recall of the HTTP status codes
       </h1>
+      <TitleCard img={level500Codes[0].url} title={level500Codes[0].title} />
       <RadioGroup
-        radioGroupLabel={
-          "Select the code which matches the description of the status code:"
-        }
+        radioGroupLabel={"Select the code which matches the description:"}
         radios={[500, 503, 502]}
         selectedRadioIndex={selectedStatusCodeIndex}
         onChange={(value: number) => setSelectedStatusCodeIndex(value)}

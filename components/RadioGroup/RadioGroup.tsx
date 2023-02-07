@@ -34,7 +34,7 @@ export const RadioGroup = ({
 
   return (
     <>
-      <fieldset>
+      <fieldset className={styles["radio-group"]}>
         <legend id={"radio-group"} className={styles["radio-group-label"]}>
           <span>{radioGroupLabel}</span>
         </legend>

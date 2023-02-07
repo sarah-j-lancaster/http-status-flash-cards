@@ -1,5 +1,8 @@
 import Image from "next/image";
-import styles from "./radio-group.module.scss";
+import styles from "./title-card.module.scss";
+import { Space_Mono } from "@next/font/google";
+
+const spaceMono = Space_Mono({ weight: "700", preload: false });
 
 export type TitleCardProps = {
   img: string;
@@ -8,9 +11,9 @@ export type TitleCardProps = {
 
 export const TitleCard = ({ img, title }: TitleCardProps) => {
   return (
-    <div className={styles["container"]}>
+    <div className={styles.container}>
       <Image src={img} alt={""} height={200} width={300} />
-      <p>{title}</p>
+      <p className={`${spaceMono.className} ${styles.title}`}>{title}</p>
     </div>
   );
 };

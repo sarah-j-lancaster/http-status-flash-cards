@@ -4,14 +4,14 @@ export type StatusCode = {
   url: string;
 };
 
-const level100Codes: StatusCode[] = [
+export const level100Codes: StatusCode[] = [
   { statusCode: 100, title: "Continue", url: "/images/100.png" },
   { statusCode: 101, title: "Switching protocols", url: "/images/101.png" },
   { statusCode: 102, title: "Processing", url: "/images/102.png" },
   { statusCode: 103, title: "Early hints", url: "/images/103.png" },
 ];
 
-const level200Codes: StatusCode[] = [
+export const level200Codes: StatusCode[] = [
   { statusCode: 200, title: "OK", url: "/images/200.png" },
   { statusCode: 201, title: "Created", url: "/images/201.png" },
   { statusCode: 202, title: "Accepted", url: "/images/202.png" },
@@ -25,7 +25,7 @@ const level200Codes: StatusCode[] = [
   { statusCode: 207, title: "Multi-status", url: "/images/207.png" },
 ];
 
-const level300Codes: StatusCode[] = [
+export const level300Codes: StatusCode[] = [
   { statusCode: 300, title: "Mulitple choices", url: "/images/300.png" },
   { statusCode: 301, title: "Moved permanently", url: "/images/301.png" },
   { statusCode: 302, title: "Found", url: "/images/302.png" },
@@ -36,7 +36,7 @@ const level300Codes: StatusCode[] = [
   { statusCode: 308, title: "Permanent redirect", url: "/images/308.png" },
 ];
 
-const level400Codes: StatusCode[] = [
+export const level400Codes: StatusCode[] = [
   { statusCode: 400, title: "Bad request", url: "/images/400.png" },
   { statusCode: 401, title: "Unauthorized", url: "/images/401.png" },
   { statusCode: 402, title: "Payment required", url: "/images/402.png" },
@@ -101,7 +101,7 @@ const level400Codes: StatusCode[] = [
   { statusCode: 499, title: "Client closed request", url: "/images/499.png" },
 ];
 
-const level500Codes: StatusCode[] = [
+export const level500Codes: StatusCode[] = [
   { statusCode: 500, title: "Internal server error", url: "/images/500.png" },
   { statusCode: 501, title: "Not implemented", url: "/images/501.png" },
   { statusCode: 502, title: "Bad gateway", url: "/images/502.png" },
@@ -136,4 +136,4 @@ const level500Codes: StatusCode[] = [
   },
 ];
 
-const codeLevelList = [1, 2, 3, 4, 5];
+export const codeLevelList = [1, 2, 3, 4, 5];
