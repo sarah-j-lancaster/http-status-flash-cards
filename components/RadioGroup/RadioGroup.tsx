@@ -3,6 +3,7 @@ import styles from "./radio-group.module.scss";
 
 export type RadioGroupProps = {
   radioGroupLabel: string;
+  isActive: boolean;
   radios: number[];
   selectedRadioIndex: number | undefined;
   onChange: (value: number) => void;
@@ -12,6 +13,7 @@ export const RadioGroup = ({
   radios,
   radioGroupLabel,
   selectedRadioIndex,
+  isActive,
   onChange,
 }: RadioGroupProps) => {
   const radioButtons = radios.map((radio, index) => (
@@ -23,7 +25,7 @@ export const RadioGroup = ({
           type="radio"
           id={`radio-${index}`}
           checked={index === selectedRadioIndex}
-          onChange={() => onChange(index)}
+          onChange={isActive ? () => onChange(index) : undefined}
         />
         <label htmlFor={`radio-${index}`} className={styles["label"]}>
           {radio}

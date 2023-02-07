@@ -20,6 +20,13 @@ const Home = () => {
     undefined | number
   >(undefined);
 
+  const [isSelected, setIsSelected] = useState<boolean>(false);
+
+  const handleSelection = (selectedIndex: number) => {
+    setSelectedStatusCodeIndex(selectedIndex);
+    setIsSelected(true);
+  };
+
   return (
     <main className={`${styles.main} ${spaceMono.className}`}>
       <h1 className={spaceMono.className}>
@@ -27,10 +34,11 @@ const Home = () => {
       </h1>
       <TitleCard img={level500Codes[0].url} title={level500Codes[0].title} />
       <RadioGroup
+        isActive={!isSelected}
         radioGroupLabel={"Select the code which matches the description:"}
         radios={[500, 503, 502]}
         selectedRadioIndex={selectedStatusCodeIndex}
-        onChange={(value: number) => setSelectedStatusCodeIndex(value)}
+        onChange={(selectedIndex: number) => handleSelection(selectedIndex)}
       />
     </main>
   );
