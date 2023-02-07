@@ -25,21 +25,22 @@ export const getStatusCodes = (): StatusCodeTestGroup => {
   ];
   const levelToTestIndex = _.random(0, 4);
   const levelToTest = levels[levelToTestIndex];
+  const levelToTestCopy = JSON.parse(JSON.stringify(levelToTest));
 
-  let maxLevelIndex = levelToTest.length - 1;
+  let maxLevelIndex = levelToTestCopy.length - 1;
   const testCodeIndex = _.random(0, maxLevelIndex);
-  const testCode = levelToTest[testCodeIndex];
-  levelToTest.splice(testCodeIndex, 1);
+  const testCode = levelToTestCopy[testCodeIndex];
+  levelToTestCopy.splice(testCodeIndex, 1);
 
-  maxLevelIndex = levelToTest.length - 1;
+  maxLevelIndex = levelToTestCopy.length - 1;
   const decoyCode1Index = _.random(0, maxLevelIndex);
-  const decoyCode1 = levelToTest[decoyCode1Index];
-  levelToTest.splice(decoyCode1Index, 1);
+  const decoyCode1 = levelToTestCopy[decoyCode1Index];
+  levelToTestCopy.splice(decoyCode1Index, 1);
 
-  maxLevelIndex = levelToTest.length - 1;
+  maxLevelIndex = levelToTestCopy.length - 1;
   const decoyCode2Index = _.random(0, maxLevelIndex);
-  const decoyCode2 = levelToTest[decoyCode2Index];
-  levelToTest.splice(decoyCode1Index, 1);
+  const decoyCode2 = levelToTestCopy[decoyCode2Index];
+  levelToTestCopy.splice(decoyCode1Index, 1);
 
   const shuffledCodes = _.shuffle([
     testCode.statusCode,

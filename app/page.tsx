@@ -6,24 +6,24 @@ import { RadioGroup } from "@/components/RadioGroup/RadioGroup";
 import { useEffect, useState } from "react";
 import { TitleCard } from "@/components/TitleCard/TitleCard";
 import { getStatusCodes, StatusCodeTestGroup } from "@/utils/utils";
+import { Button } from "@/components/Button/Button";
 
 const spaceMono = Space_Mono({ weight: "400", preload: false });
+const spaceMonoBold = Space_Mono({ weight: "700", preload: false });
 
 const Home = () => {
   const [selectedStatusCodeIndex, setSelectedStatusCodeIndex] = useState<
     undefined | number
   >(undefined);
 
-  const [isSelected, setIsSelected] = useState<boolean>(false);
-
   const handleSelection = (selectedIndex: number) => {
     setSelectedStatusCodeIndex(selectedIndex);
-    setIsSelected(true);
   };
 
   const resetSelection = () => {
     setSelectedStatusCodeIndex(undefined);
-    setIsSelected(false);
+    const statusCodes = getStatusCodes();
+    setStatusCodeTestGroup(statusCodes);
   };
 
   const [statusCodeTestGroup, setStatusCodeTestGroup] = useState<
@@ -47,12 +47,27 @@ const Home = () => {
             title={statusCodeTestGroup.testCode.title}
           />
           <RadioGroup
-            isActive={!isSelected}
+            isActive={selectedStatusCodeIndex === undefined}
             radioGroupLabel={"Select the code which matches the description:"}
             radios={statusCodeTestGroup.shuffledCodes}
             selectedRadioIndex={selectedStatusCodeIndex}
             onChange={(selectedIndex: number) => handleSelection(selectedIndex)}
           />
+          {selectedStatusCodeIndex !== undefined && (
+            <div className={styles.answers}>
+              {statusCodeTestGroup.shuffledCodes[selectedStatusCodeIndex] ===
+              statusCodeTestGroup.testCode.statusCode ? (
+                <p className={spaceMonoBold.className}>CORRECT!</p>
+              ) : (
+                <div>
+                  <span className={spaceMonoBold.className}>INCORRECT</span>
+                  <span>{`- The answer is ${statusCodeTestGroup.testCode.statusCode}`}</span>{" "}
+                </div>
+              )}
+
+              <Button label="Next" onClick={resetSelection} />
+            </div>
+          )}
         </>
       )}
     </main>
